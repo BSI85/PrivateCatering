@@ -1,0 +1,698 @@
+// Файл обнуляющих стилей
+@import 'nullstyle.scss';
+
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans&display=swap');
+@font-face {
+  font-family: 'Akzidenz Grotesk BQ';
+  src: local('Akzidenz-Grotesk BQ Bold Condensed'), local('Akzidenz-Grotesk-BQ-Bold-Condensed'),
+    url('../fonts/AkzidenzGroteskBQ-BdCnd.woff2') format('woff2'),
+    url('../fonts/AkzidenzGroteskBQ-BdCnd.woff') format('woff'),
+    url('../fonts/AkzidenzGroteskBQ-BdCnd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+//Variables
+
+$minwidth: 320px;
+$container: 880px;
+$md1: $container + 30px;
+$md3: 767.98px;
+$md4: 479.98px;
+
+html,
+body {
+  font-family: 'PT Sans', sans-serif;
+  min-width: $minwidth;
+}
+
+.container {
+  max-width: $md1;
+  margin: 0 auto;
+  padding: 0px 15px;
+  width: 100%;
+  @media (max-width: $md3) {
+    max-width: 750px;
+  }
+  @media (max-width: $md4) {
+    max-width: none;
+    padding: 0px 10px;
+  }
+}
+
+//header
+
+header {
+  padding: 30px 0px 33px 0px;
+  @media (max-width: $md3) {
+    padding: 5px 0px 5px 0px;
+  }
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $md3) {
+    justify-content: flex-end;
+    padding: 15px 0px 0px 0px;
+  }
+
+  &__link {
+    font-size: 15px;
+    line-height: 19px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #000;
+    font-family: 'Akzidenz Grotesk BQ';
+    position: relative;
+    z-index: 11;
+    @media (max-width: $md4) {
+      font-size: 12px;
+    }
+  }
+}
+.header-top-lang {
+  display: flex;
+  @media (max-width: $md3) {
+    margin: 0px 0px 10px 0px;
+  }
+  &__item {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #000;
+    font-family: 'Bebas Neue';
+    padding: 0px 4px;
+    margin: 0px 10px 0px 0px;
+    &.active {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+}
+.header-bottom {
+  margin: -10px 0px 0px 0px;
+  display: flex;
+  align-items: center;
+  @media (max-width: $md3) {
+    margin: -37px 0px 0px 0px;
+  }
+  @media (max-width: $md4) {
+    margin: -27px 0px 0px 0px;
+  }
+
+  &__column {
+    flex: 0 0 33.3333%;
+  }
+}
+.header-bottom-menu-list {
+  display: flex;
+  &__right {
+    justify-content: flex-end;
+  }
+  li {
+    &:nth-child(2) {
+      margin: 0 46px;
+      @media (max-width: $md1) {
+        margin: 0 20px;
+      }
+    }
+  }
+  @media (max-width: $md3) {
+    display: block;
+    text-align: left;
+    li {
+      margin: 0px 0px 15px 0px !important;
+      // &:last-child {
+      //   margin: 0px 0px 0px 0px !important;
+      // }
+    }
+  }
+}
+.header-bottom-menu {
+  &__link {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #000;
+    font-family: 'Akzidenz Grotesk BQ';
+  }
+}
+
+.header-logo {
+  position: relative;
+  z-index: 11;
+  display: block;
+  text-align: center;
+  &__text {
+    display: block;
+    font-size: 8px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'Bebas Neue';
+    @media (max-width: $md4) {
+      letter-spacing: 5px;
+    }
+  }
+
+  &__image {
+    display: inline-block;
+    margin: 13px 0px 22px 0px;
+    @media (max-width: $md3) {
+      margin: 2px 0px 5px 0px;
+      img {
+        width: 150px;
+      }
+    }
+    @media (max-width: $md4) {
+      margin: 0px 0px 2px 0px;
+      img {
+        width: 100px;
+      }
+    }
+  }
+}
+
+.header-menu {
+  @media (max-width: $md3) {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: -120%;
+    top: 0;
+    overflow: auto;
+    background-color: #fff;
+    padding: 50px 10px 20px 10px;
+    transition: all 0.5s ease 0s;
+    &._active {
+      left: 0%;
+      transition: all 0.5s ease 0s;
+    }
+  }
+  &__icon {
+    display: none;
+
+    @media (max-width: $md3) {
+      display: block;
+      position: absolute;
+      top: 28px;
+      left: 10px;
+      width: 30px;
+      height: 18px;
+      cursor: pointer;
+      z-index: 5;
+      span {
+        transition: all 0.3s ease 0s;
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #4d4959;
+        &:first-child {
+          top: 0;
+        }
+        &:last-child {
+          top: auto;
+          bottom: 0;
+        }
+      }
+      &._active {
+        span {
+          transform: scale(0);
+          //background-color: #fff;
+          &:first-child {
+            transform: rotate(-45deg);
+            top: 8px;
+          }
+          &:last-child {
+            transform: rotate(45deg);
+            bottom: 8px;
+          }
+        }
+      }
+    }
+    @media (max-width: $md4) {
+      top: 18px;
+    }
+  }
+}
+
+.content {
+}
+.private {
+  display: flex;
+  background-color: #000;
+  margin: 0px 0px 75px 0px;
+  @media (max-width: $md3) {
+    margin: 0px 0px 40px 0px;
+  }
+  &__column {
+    flex: 0 0 50%;
+    @media (max-width: $md3) {
+      flex: 0 0 100%;
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+  &__image {
+    height: 100%;
+    &.picture-big {
+      background: url(../img/pictures/img_big.png) center/cover no-repeat;
+    }
+  }
+}
+.private-body {
+  padding: 75px 15px 75px 60px;
+  @media (max-width: $md3) {
+    padding: 30px 10px 30px 30px;
+  }
+  &__title {
+    font-size: 50px;
+    letter-spacing: 5px;
+    line-height: 50px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: 'Akzidenz Grotesk BQ';
+    margin: 0px 0px 30px 0px;
+    @media (max-width: $md3) {
+      font-size: 35px;
+      margin: 0px 0px 15px 0px;
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 25px;
+    color: #fff;
+    margin: 0px 0px 40px 0px;
+  }
+}
+.private-body-container {
+  max-width: 305px;
+}
+.private-body-buttons {
+  display: flex;
+  &__item {
+  }
+
+  &__link {
+    font-size: 15px;
+    letter-spacing: 2px;
+    line-height: 25px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #fffffe;
+    font-family: 'Bebas Neue';
+    padding: 12px 16px;
+  }
+}
+.btn {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #fff;
+  padding: 0px 33px;
+  font-family: 'Bebas Neue';
+  &--b {
+    color: #fff;
+    background-color: #000;
+  }
+  &:hover {
+  }
+}
+
+.products-body {
+  display: flex;
+  @media (max-width: $md3) {
+    flex-wrap: wrap;
+  }
+}
+.products {
+  margin: 0px 0px 40px 0px;
+  @media (max-width: $md3) {
+    margin: 0px;
+  }
+  &__column {
+    flex: 0 0 25%;
+    margin: 0px 0px 40px 0px;
+    @media (max-width: $md3) {
+      flex: 0 0 50%;
+    }
+    @media (max-width: 380px) {
+      flex: 1 1 100%;
+    }
+  }
+}
+.products-item {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  &__image {
+    display: block;
+    padding: 0px 0px 100% 0px;
+    margin: 0px 0px 30px 0px;
+  }
+
+  &__title {
+    height: 50px;
+    max-width: 175px;
+    display: block;
+    font-size: 25px;
+    letter-spacing: 2.5px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #000;
+    font-family: 'Akzidenz Grotesk BQ';
+    margin: 0px 0px 30px 0px;
+    @media (max-width: 380px) {
+      max-width: none;
+      height: auto;
+      overflow: visible;
+    }
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    padding: 0px 10px 0px 0px;
+    max-width: 175px;
+    font-size: 15px;
+    line-height: 25px;
+    color: #000;
+    margin: 0px 0px 30px 0px;
+    @media (max-width: 380px) {
+      max-width: none;
+    }
+  }
+
+  &__btn {
+    margin: 0px 0px 30px 0px;
+    max-width: fit-content;
+  }
+
+  &__link {
+    display: block;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    line-height: 25px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #000;
+    font-family: 'Bebas Neue';
+  }
+}
+.picture {
+  &_1 {
+    background: url(../img/pictures/img01.png) center/cover no-repeat;
+  }
+  &_2 {
+    background: url(../img/pictures/img02.png) center/cover no-repeat;
+  }
+  &_3 {
+    background: url(../img/pictures/img03.png) center/cover no-repeat;
+  }
+  &_4 {
+    background: url(../img/pictures/img04.png) center/cover no-repeat;
+  }
+}
+
+.why {
+}
+.why-top {
+  display: flex;
+  background-color: #000;
+
+  &__column {
+    flex: 0 0 50%;
+    @media (max-width: $md1) {
+      flex: 1 1 auto;
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 50px;
+    letter-spacing: 5px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'Akzidenz Grotesk BQ';
+    text-align: right;
+    padding: 55px 60px 55px 0px;
+    @media (max-width: $md1) {
+      padding: 35px 0px;
+      text-align: center;
+      font-size: 40px;
+    }
+    @media (max-width: $md4) {
+      padding: 20px 0px;
+      text-align: center;
+      font-size: 30px;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    background: url(../img/pictures/img06.png) center/cover no-repeat;
+  }
+}
+.why-body {
+  background-color: #ebebeb;
+  padding: 50px 0px 0px 0px;
+  &__column {
+    flex: 0 0 50%;
+    margin: 0px 0px 50px 0px;
+    @media (max-width: $md1) {
+      flex: 1 1 auto;
+      margin: 0px 0px 30px 0px;
+    }
+  }
+}
+.why-body-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.why-body-item {
+  display: flex;
+  &__icon {
+    display: flex;
+    flex: 0 0 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    @media (max-width: $md4) {
+      flex: 0 0 80px;
+      height: 80px;
+      padding: 15px;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+.why-body-item-body {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0px 0px 11px;
+  &__title {
+    flex: 1 1 auto;
+    font-size: 25px;
+    letter-spacing: 2.5px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #000000;
+    font-family: 'Akzidenz Grotesk BQ';
+    margin: 0px 0px 30px 0px;
+    @media (max-width: $md4) {
+      font-size: 18px;
+      margin: 0px 0px 8px 0px;
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 25px;
+    color: #000;
+    padding: 0px 15px 0px 0px;
+    @media (max-width: $md4) {
+      font-size: 12px;
+      padding: 0px 5px 0px 0px;
+    }
+  }
+}
+
+.contacts {
+  padding: 80px 0px 0px 0px;
+  @media (max-width: $md3) {
+    padding: 40px 0px 0px 0px;
+  }
+  &__title {
+    font-size: 50px;
+    letter-spacing: 5px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #000;
+    font-family: 'Akzidenz Grotesk BQ';
+    padding: 0px 0px 30px 0px;
+  }
+}
+.contacts-top {
+}
+.container {
+}
+.contacts-body {
+  display: flex;
+  flex-wrap: wrap;
+  @media (max-width: $md4) {
+    display: block;
+  }
+  &__column {
+    flex: 0 0 50%;
+    margin: 0px 0px 20px 0px;
+  }
+
+  &__item {
+    font-size: 15px;
+    color: #000;
+    display: inline-block;
+    line-height: 27px;
+    padding: 0px 0px 0px 35px;
+  }
+
+  &__item--1 {
+    background: url(../img/icons/map_point.png) left no-repeat;
+  }
+
+  &__item--2 {
+    background: url(../img/icons/email.png) left no-repeat;
+  }
+
+  &__item--3 {
+    background: url(../img/icons/telephone.png) left no-repeat;
+  }
+}
+.contacts-social {
+  &__item {
+    margin: 0px 30px 0px 0px;
+    &:last-child {
+      margin: 0px;
+    }
+  }
+}
+.contacts-content {
+  display: flex;
+  background-color: #000;
+  @media (max-width: $md3) {
+    display: block;
+  }
+
+  &__column {
+    flex: 0 0 50%;
+  }
+
+  &__map {
+    height: 100%;
+    @media (max-width: $md3) {
+      height: 480px;
+    }
+  }
+}
+.contacts-content-form {
+  padding: 55px 60px;
+  @media (max-width: $md3) {
+    padding: 30px;
+  }
+  &__title {
+    font-size: 25px;
+    letter-spacing: 3px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: 'Akzidenz Grotesk BQ';
+    margin: 0px 0px 25px 0px;
+  }
+
+  &__body {
+    max-width: 375px;
+  }
+
+  &__btn {
+  }
+}
+.contacts-content-form-line {
+  margin: 0px 0px 25px 0px;
+}
+.input {
+  width: 100%;
+  display: block;
+  padding: 0px 18px;
+  height: 50px;
+  border: 2px solid #959595;
+  background-color: #252525;
+  color: #959595;
+  font-size: 15px;
+}
+
+textarea.input {
+  height: 100px;
+  resize: none;
+  padding: 10px 18px;
+}
+
+.footer-body {
+  display: flex;
+  height: 125px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 20px;
+  @media (max-width: $md3) {
+    height: auto;
+    flex-direction: column;
+    padding: 15px 0px;
+  }
+
+  &__column {
+    @media (max-width: $md3) {
+      margin: 0px 0px 15px 0px;
+      &:first-child {
+        order: 2;
+      }
+      &:last-child {
+        order: 1;
+      }
+    }
+  }
+}
+.footer {
+  &__text {
+    font-size: 15px;
+    line-height: 25px;
+    color: #4d4d4d;
+    a {
+      text-decoration: underline;
+      color: #4d4d4d;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    @media (max-width: $md3) {
+      text-align: center;
+    }
+  }
+
+  &__logo {
+  }
+}
